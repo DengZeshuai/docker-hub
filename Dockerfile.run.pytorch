@@ -1,0 +1,11 @@
+FROM dengzeshuai/pai.build.base:hadoop2.7.2-cuda8.0-cudnn6-devel-ubuntu16.04
+
+# install git
+RUN apt-get install -y python3-pip
+
+# install PyTorch dependeces using pip
+RUN pip3 install torch torchvision pyhdfs
+RUN apt-get remove -y python
+RUN apt-get clean && rm -rf /var/lib/apt/list* && rm -rf /root/.cache/
+
+RUN apt-get clean

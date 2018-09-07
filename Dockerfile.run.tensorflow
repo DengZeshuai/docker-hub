@@ -1,0 +1,16 @@
+FROM dengzeshuai/pai.build.base:hadoop2.7.2-cuda8.0-cudnn6-devel-ubuntu16.04
+
+ENV TENSORFLOW_VERSION=1.4.0
+
+# For how to run TensorFlow on Hadoop,
+# please refer to https://www.tensorflow.org/deploy/hadoop
+RUN apt-get install -y  python3-pip
+RUN pip install tensorflow-gpu==${TENSORFLOW_VERSION} && \
+    pip3 install tensorflow-gpu==${TENSORFLOW_VERSION}
+
+# Add symbol link for libcuda.so
+RUN ln -s /usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so \
+          /usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so.1
+
+RUN apt-get clean
+WORKDIR /root
