@@ -30,7 +30,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         htop\
         lrzsz \
         tmux \
-        openssh-server
+        openssh-server \
         && \
 
     $GIT_CLONE https://github.com/Kitware/CMake ~/cmake && \
