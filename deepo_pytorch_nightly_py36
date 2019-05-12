@@ -30,6 +30,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         htop\
         lrzsz \
         tmux \
+        openssh-server
         && \
 
     $GIT_CLONE https://github.com/Kitware/CMake ~/cmake && \
@@ -87,7 +88,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         && \
     $PIP_INSTALL \
         torch_nightly -f \
-        https://download.pytorch.org/whl/nightly/cu100/torch_nightly.html \
+        https://download.pytorch.org/whl/nightly/cu90/torch_nightly.html \
         && \
 
 # ==================================================================
